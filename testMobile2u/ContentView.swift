@@ -130,9 +130,77 @@ struct ContentView: View {
                             
                         }.listRowBackground(Color.black)
                         
+                        HStack{
+                            Image("testeMovieImg").resizable().frame(width: 60, height: 80)
+                            
+                            Spacer()
+                                .frame(width: 15)
+                            
+                            VStack(alignment: .leading, spacing: 2){
+                                Text("Edward Scissorshands")
+                                HStack{
+                                    Text("1990").font(.footnote)
+                                    Text("Drama, Fantasy").font(.footnote).foregroundColor(.gray)
+                                    
+                                }
+                            }.foregroundColor(.white)
+                            
+                        }.listRowBackground(Color.black)
                         
-                    }.frame(width: g.size.width , height: g.size.height )
-                    .foregroundColor(.blue)
+                        HStack{
+                            Image("testeMovieImg").resizable().frame(width: 60, height: 80)
+                            
+                            Spacer()
+                                .frame(width: 15)
+                            
+                            VStack(alignment: .leading, spacing: 2){
+                                Text("Edward Scissorshands")
+                                HStack{
+                                    Text("1990").font(.footnote)
+                                    Text("Drama, Fantasy").font(.footnote).foregroundColor(.gray)
+                                    
+                                }
+                            }.foregroundColor(.white)
+                            
+                        }.listRowBackground(Color.black)
+                        
+                        HStack{
+                            Image("testeMovieImg").resizable().frame(width: 60, height: 80)
+                            
+                            Spacer()
+                                .frame(width: 15)
+                            
+                            VStack(alignment: .leading, spacing: 2){
+                                Text("Edward Scissorshands")
+                                HStack{
+                                    Text("1990").font(.footnote)
+                                    Text("Drama, Fantasy").font(.footnote).foregroundColor(.gray)
+                                    
+                                }
+                            }.foregroundColor(.white)
+                            
+                        }.listRowBackground(Color.black)
+                        
+                        HStack{
+                            Image("testeMovieImg").resizable().frame(width: 60, height: 80)
+                            
+                            Spacer()
+                                .frame(width: 15)
+                            
+                            VStack(alignment: .leading, spacing: 2){
+                                Text("Edward Scissorshands")
+                                HStack{
+                                    Text("1990").font(.footnote)
+                                    Text("Drama, Fantasy").font(.footnote).foregroundColor(.gray)
+                                    
+                                }
+                            }.foregroundColor(.white)
+                            
+                        }.listRowBackground(Color.black)
+                        
+                        
+                    }.frame(width: g.size.width , height: g.size.height)
+
                     
                 }.ignoresSafeArea(.all, edges: .all).frame(width: g.size.width)
                 
