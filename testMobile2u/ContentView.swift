@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State var imageName: String = "heart"
+    @State var movie: Movie? = nil
+    
     
     var body: some View {
         
@@ -16,34 +18,9 @@ struct ContentView: View {
             Color.black.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             GeometryReader { g in
                 ScrollView {
-                    Image("teste").resizable()
-                        .scaledToFit()
-                    VStack(alignment: .leading, spacing: 10){
-                        HStack{
-                            Text("The best movies").font(.system(size: 30)).bold()
-                            Spacer()
-                                .frame(width: 220)
-                            Button(action: {
-                                print("Edit button was tapped")
-                                self.imageName = "heart.fill"
-                                
-                            }) {
-                                Image(systemName: imageName)
-                            }
-                        }
-                        HStack{
-                            Image(systemName: "heart.fill")
-                            Text("10 Likes")
-                            Spacer()
-                                .frame(width: 40)
-                            Image(systemName: "sleep")
-                            Text("0 of 10 Watched")
-                            
-                            
-                        }.font(.footnote)
-                        Spacer()
-                            .frame(height: 10)
-                    }.foregroundColor(.white)
+                   
+                    MovieInfo(movie: self.movie)
+                    
                     
                     List {
                         HStack{
@@ -207,6 +184,10 @@ struct ContentView: View {
                 //FIXME: verificar o gradiente
             }.background(LinearGradient(gradient: Gradient(colors: [.black.opacity(0.95), .black]), startPoint: .center, endPoint: .bottom))
             
+        }.onAppear{
+            Api().getPost { (movie) in
+                self.movie = movie
+            }
         }
         
         
