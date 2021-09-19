@@ -25,7 +25,7 @@ struct Genres: Decodable{
 
 class Api{
     func getPost(completion: @escaping (Movie) -> ()){
-        guard let url = URL(string: "https://api.themoviedb.org/3/movie/497698?api_key=6fd84a57c4346398aaae25e1f931818b")else{return}
+        guard let url = URL(string: "https://api.themoviedb.org/3/movie/566525?api_key=6fd84a57c4346398aaae25e1f931818b")else{return}
         
         URLSession.shared.dataTask(with: url) { data, _, _ in
             let posts = try! JSONDecoder().decode(Movie.self, from: data!)

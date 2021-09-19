@@ -15,20 +15,46 @@ struct MovieInfo: View{
       
             VStack(alignment: .leading, spacing: 10){
                 
-                Image(uiImage: "https://image.tmdb.org/t/p/original/\(movie?.poster_path ?? "")".load())
-                    .resizable()
-                    .scaledToFit()
+                ZStack{
+                    
+                    Image(uiImage: "https://image.tmdb.org/t/p/original/\(movie?.poster_path ?? "")".load())
+                        .resizable()
+                        .scaledToFit()
+                    
+                    Button(action: {
+                        
+                        print("Edit button back was tapped")
+                    }) {
+                        Image(systemName: "chevron.left.circle.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.black)
+                            
+                            .offset(x: -170, y:-220)
+//                            .background(Color.white)
+                    }
+                }
+                
                 
                 
                 
                 HStack{
-                    Text("The best movies of Marvel").font(.system(size: 30)).bold()
+                    Text("The best movies of Marvel").font(.system(size: 30)).bold().frame(maxWidth: .infinity, alignment: .leading)
+                    
                     Spacer()
-                        .frame(width: 220)
+                        .frame(width: 22)
+                    
                     Button(action: {
                         print("Edit button was tapped")
                         
-                        self.imageName = "heart.fill"
+                        if(self.imageName == "heart.fill"){
+                            self.imageName = "heart"
+                            
+                        }else{
+                            self.imageName = "heart.fill"
+                        }
+                        
+                        
                         
                         
                     }) {
@@ -41,9 +67,11 @@ struct MovieInfo: View{
                     Text("\(movie?.vote_count ?? 0) Likes")
                     Spacer()
                         .frame(width: 40)
+                    
+                    
                     Image(systemName: "person.3.fill")
                    
-                    Text("\(movie?.popularity ?? 0)")
+                    Text("\(String(format: "%.3f", movie?.popularity ?? 0.0))")
                     
                     
                 }.font(.footnote)
