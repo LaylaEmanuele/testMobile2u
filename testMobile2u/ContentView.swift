@@ -181,8 +181,8 @@ struct ContentView: View {
                     
                 }.ignoresSafeArea(.all, edges: .all).frame(width: g.size.width)
                 
-                //FIXME: verificar o gradiente
-            }.background(LinearGradient(gradient: Gradient(colors: [.black.opacity(0.95), .black]), startPoint: .center, endPoint: .bottom))
+               
+            }.background(LinearGradient(gradient: Gradient(colors: [.black.opacity(0.80), .black]), startPoint: .center, endPoint: .bottom))
             
         }.onAppear{
             Api().getPost { (movie) in

@@ -12,13 +12,14 @@ struct MovieInfo: View{
     var movie: Movie?
 
     var body: some View {
-        
       
             VStack(alignment: .leading, spacing: 10){
                 
-                Image(uiImage: "https://image.tmdb.org/t/p/original/qAZ0pzat24kLdO3o8ejmbLxyOac.jpg".load())
+                Image(uiImage: "https://image.tmdb.org/t/p/original/\(movie?.poster_path ?? "")".load())
                     .resizable()
                     .scaledToFit()
+                
+                
                 
                 HStack{
                     Text("The best movies of Marvel").font(.system(size: 30)).bold()
@@ -26,7 +27,9 @@ struct MovieInfo: View{
                         .frame(width: 220)
                     Button(action: {
                         print("Edit button was tapped")
+                        
                         self.imageName = "heart.fill"
+                        
                         
                     }) {
                         Image(systemName: imageName)
@@ -38,7 +41,7 @@ struct MovieInfo: View{
                     Text("\(movie?.vote_count ?? 0) Likes")
                     Spacer()
                         .frame(width: 40)
-                    Image(systemName: "sleep")
+                    Image(systemName: "person.3.fill")
                    
                     Text("\(movie?.popularity ?? 0)")
                     

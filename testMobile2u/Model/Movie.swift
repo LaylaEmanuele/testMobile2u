@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Movie: Codable{
     var backdrop_path: String // image
+    var poster_path: String // image
     var vote_count: Int // likes
     var original_title: String
     var popularity: Double
