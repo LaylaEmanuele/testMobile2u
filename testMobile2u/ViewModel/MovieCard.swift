@@ -9,6 +9,7 @@ import SwiftUI
 struct MovieCard: View{
     var movieId: Int
     @State var movie: Movie? = nil
+    @State var genre: String = ""
     
     var body: some View {
         HStack{
@@ -22,11 +23,7 @@ struct MovieCard: View{
                 HStack{
                     Text(self.movie?.release_date[(self.movie?.release_date.startIndex)!..<(self.movie?.release_date.index((self.movie?.release_date.startIndex)!, offsetBy: 4))!] ?? "").font(.footnote)
                     
-                    ForEach(movie?.genres ?? [], id: \.id){ genre in
-                        
-                    }
-                    
-                    Text("Drama, Fantasy").font(.footnote).foregroundColor(.gray)
+                    Text(self.genre).font(.footnote).foregroundColor(.gray)
                     
                 }
             }.foregroundColor(.white)
@@ -35,6 +32,8 @@ struct MovieCard: View{
         .onAppear{
             Api().getFirstMovie(id: self.movieId) { (movie) in
                 self.movie = movie
+                self.genre = String(movie.genres[0].name) + (movie.genres.count > 1 ? ", " + String(movie.genres[1].name) : "")
+
             }
             
         }
