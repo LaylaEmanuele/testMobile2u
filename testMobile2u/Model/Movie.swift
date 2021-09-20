@@ -20,8 +20,7 @@ struct Movie: Decodable{
 struct Genres: Decodable{
     var id: Int
     var name: String
-}
-//566525  
+}  
 
 class Api{
     func getFirstMovie(id: Int, completion: @escaping (Movie) -> ()){

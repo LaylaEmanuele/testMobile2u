@@ -37,7 +37,7 @@ struct ContentView: View {
             Api().getFirstMovie(id: self.firstIdMovie) { (movie) in
                 self.movie = movie
             }
-            ApiGetSimiliar().getIdMovies { (movie) in
+            ApiGetSimiliar().getIdMovies(id: self.firstIdMovie) { (movie) in
                 self.movieSimiliar = movie
             }
         }
