@@ -7,34 +7,33 @@
 
 import SwiftUI
 
-struct Movie: Codable{
+struct Movie: Decodable{
     var backdrop_path: String // image
     var poster_path: String // image
     var vote_count: Int // likes
     var original_title: String
     var popularity: Double
-//    var overview: String // description
-//    var release_date: String
-//    var genres: [Genres]
+    var genres: [Genres]
+    var release_date: String
 }
 
 struct Genres: Decodable{
     var id: Int
     var name: String
 }
+//566525  
 
 class Api{
-    func getPost(completion: @escaping (Movie) -> ()){
-        guard let url = URL(string: "https://api.themoviedb.org/3/movie/566525?api_key=6fd84a57c4346398aaae25e1f931818b")else{return}
+    func getFirstMovie(id: Int, completion: @escaping (Movie) -> ()){
+        guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(id)?api_key=6fd84a57c4346398aaae25e1f931818b")else{return}
         
         URLSession.shared.dataTask(with: url) { data, _, _ in
-            let posts = try! JSONDecoder().decode(Movie.self, from: data!)
+            let movies = try! JSONDecoder().decode(Movie.self, from: data!)
             
             DispatchQueue.main.async {
-                completion(posts)
+                completion(movies)
             }
             
-            print(posts)
             
             
         }.resume()

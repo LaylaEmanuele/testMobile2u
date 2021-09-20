@@ -20,6 +20,7 @@ struct MovieInfo: View{
                     Image(uiImage: "https://image.tmdb.org/t/p/original/\(movie?.poster_path ?? "")".load())
                         .resizable()
                         .scaledToFit()
+                      
                     
                     Button(action: {
                         
@@ -29,13 +30,10 @@ struct MovieInfo: View{
                             .resizable()
                             .frame(width: 30, height: 30)
                             .foregroundColor(.black)
+                           
                             
-                            .offset(x: -170, y:-220)
-//                            .background(Color.white)
-                    }
+                    } .offset(x: -170, y:-220)
                 }
-                
-                
                 
                 
                 HStack{
@@ -71,7 +69,7 @@ struct MovieInfo: View{
                     
                     Image(systemName: "person.3.fill")
                    
-                    Text("\(String(format: "%.3f", movie?.popularity ?? 0.0))")
+                    Text("\(String(format: "%.3f", movie?.popularity ?? 0.0)) views")
                     
                     
                 }.font(.footnote)
