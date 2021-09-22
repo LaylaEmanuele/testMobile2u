@@ -20,8 +20,7 @@ struct MovieInfo: View{
                     Image(uiImage: "https://image.tmdb.org/t/p/original/\(movie?.poster_path ?? "")".load())
                         .resizable()
                         .scaledToFit()
-                      
-                    
+
                     Button(action: {
                         
                         print("Edit button back was tapped")
@@ -30,11 +29,9 @@ struct MovieInfo: View{
                             .resizable()
                             .frame(width: 30, height: 30)
                             .foregroundColor(.black)
-                           
                             
                     } .offset(x: -170, y:-220)
                 }
-                
                 
                 HStack{
                     Text("The best movies of Marvel").font(.system(size: 30)).bold().frame(maxWidth: .infinity, alignment: .leading)
@@ -52,9 +49,6 @@ struct MovieInfo: View{
                             self.imageName = "heart.fill"
                         }
                         
-                        
-                        
-                        
                     }) {
                         Image(systemName: imageName)
                     }
@@ -66,11 +60,9 @@ struct MovieInfo: View{
                     Spacer()
                         .frame(width: 40)
                     
-                    
                     Image(systemName: "person.3.fill")
                    
                     Text("\(String(format: "%.3f", movie?.popularity ?? 0.0)) views")
-                    
                     
                 }.font(.footnote)
                 
@@ -78,27 +70,7 @@ struct MovieInfo: View{
                     .frame(height: 10)
                 
             }.foregroundColor(.white)
-            
-        
         
     }
 }
 
-
-extension String{
-    
-    func load()->UIImage{
-        do{
-            guard let url = URL(string: self)else{
-                return UIImage()
-            }
-            let data: Data = try Data(contentsOf: url)
-            
-            return UIImage(data: data) ?? UIImage()
-            
-        }catch{
-            
-        }
-        return UIImage()
-    }
-}

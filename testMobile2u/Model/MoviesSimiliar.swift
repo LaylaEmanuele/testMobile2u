@@ -16,11 +16,9 @@ struct MoviesSimiliar: Decodable{
     var results: [Results]
 }
 
-
-
 class ApiGetSimiliar{
-    func getIdMovies(completion: @escaping (MoviesSimiliar) -> ()){
-        guard let url = URL(string: "https://api.themoviedb.org/3/movie/566525/similar?api_key=6fd84a57c4346398aaae25e1f931818b")else{return}
+    func getSimiliarMoviesById(id: Int, completion: @escaping (MoviesSimiliar) -> ()){
+        guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(id)/similar?api_key=6fd84a57c4346398aaae25e1f931818b")else{return}
         
         URLSession.shared.dataTask(with: url) { data, _, _ in
             let moviesId = try! JSONDecoder().decode(MoviesSimiliar.self, from: data!)
