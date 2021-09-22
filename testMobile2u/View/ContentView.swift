@@ -18,18 +18,19 @@ struct ContentView: View {
         ZStack{
             Color.black.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             GeometryReader { g in
-                ScrollView {
-                    
+                
+                ScrollView (showsIndicators: false) {
                     MovieInfo(movie: self.movie)
-                    List{
-                        ForEach(movieSimiliar?.results ?? [], id: \.id){ result in
-                            MovieCard(movieId: result.id)
-                            
-                        }
-                    }.frame(width: g.size.width , height: g.size.height)
+                        List{
+                            ForEach(movieSimiliar?.results ?? [], id: \.id){ result in
+                                MovieCard(movieId: result.id)
+                            }
+                        }.frame(width: g.size.width , height: g.size.height)
+                    
+                   
                     
                 }.ignoresSafeArea(.all, edges: .all).frame(width: g.size.width)
-                
+
                 
             }.background(LinearGradient(gradient: Gradient(colors: [.black.opacity(0.80), .black]), startPoint: .center, endPoint: .bottom))
             
@@ -37,7 +38,7 @@ struct ContentView: View {
             Api().getFirstMovie(id: self.firstIdMovie) { (movie) in
                 self.movie = movie
             }
-            ApiGetSimiliar().getIdMovies(id: self.firstIdMovie) { (movie) in
+            ApiGetSimiliar().getSimiliarMoviesById(id: self.firstIdMovie) { (movie) in
                 self.movieSimiliar = movie
             }
         }

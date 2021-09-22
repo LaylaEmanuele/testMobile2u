@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF193E4E26F945810065239F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF193E4D26F945810065239F /* Extensions.swift */; };
 		BF25922B26F7BDB5006423DF /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF25922A26F7BDB5006423DF /* MovieInfo.swift */; };
 		BF25922D26F7FA0B006423DF /* MoviesSimiliar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF25922C26F7FA0B006423DF /* MoviesSimiliar.swift */; };
 		BF25923026F83BEB006423DF /* MovieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF25922F26F83BEB006423DF /* MovieCard.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF193E4D26F945810065239F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BF25922A26F7BDB5006423DF /* MovieInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
 		BF25922C26F7FA0B006423DF /* MoviesSimiliar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSimiliar.swift; sourceTree = "<group>"; };
 		BF25922F26F83BEB006423DF /* MovieCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCard.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF193E4C26F9456D0065239F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BF193E4D26F945810065239F /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		BF25922926F7BD73006423DF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +87,7 @@
 		BF52238C26F4496800120549 /* testMobile2u */ = {
 			isa = PBXGroup;
 			children = (
+				BF193E4C26F9456D0065239F /* Utils */,
 				BFA254E726F5926900C78BB7 /* Model */,
 				BF25922926F7BD73006423DF /* ViewModel */,
 				BF25922E26F823F3006423DF /* View */,
@@ -180,6 +191,7 @@
 				BF52238E26F4496800120549 /* testMobile2uApp.swift in Sources */,
 				BF25922B26F7BDB5006423DF /* MovieInfo.swift in Sources */,
 				BFA254E926F5927D00C78BB7 /* Movie.swift in Sources */,
+				BF193E4E26F945810065239F /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
